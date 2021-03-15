@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 4000;
 
+app.set('view engine', 'pug');
 
 // mongoose connection
 mongoose.Promise = global.Promise;
@@ -24,9 +25,10 @@ routes(app);
 app.use(express.static('public'));
 
 
-app.get('/', (req, res) =>
-    res.send(`Node and express server running on port ${PORT}`)
-);
+app.get('/', (req, res) => {
+    res.render('index', { page: "index", title: "Home Page" });
+    // res.send(`Node and express server running on port ${PORT}`)
+});
 
 app.listen(PORT, () => 
     console.log(`Your server is running on port ${PORT}`)
