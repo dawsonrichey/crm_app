@@ -30,8 +30,11 @@ app.get('/', (req, res) => {
     res.render('index', { page: "index", title: "Home Page" });
     // res.send(`Node and express server running on port ${PORT}`)
 });
-app.get('/contact', (req, res) => {
-    res.render('contact', { page: "Contact", title: "Contact Page" });
+
+app.get('/user', (req, res) => {
+    // res.render('user', { page: "User", title: "User Page" });
+    // let here3 = res.json(contact);
+    res.render('user', { page: "User", title: "User Page fdsfds" });
     // res.send(`Node and express server running on port ${PORT}`)
 });
 

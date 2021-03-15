@@ -12,6 +12,7 @@ export const addnewContact = (req, res) => {
             res.send(err);
         }
         res.json(contact);
+        
     });
 }
 // GET

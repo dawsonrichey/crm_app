@@ -9,6 +9,7 @@ import {
 
 const routes = (app) => {
     // General Route
+    
     app.route('/contact')
         // GET
         .get((req,res, next) => {
@@ -19,6 +20,7 @@ const routes = (app) => {
         }, getContacts)
         // POST endpoint
         .post(addnewContact);
+
     // Route with ID
     app.route('/contact/:contactID')
         // GET a specific contact 
