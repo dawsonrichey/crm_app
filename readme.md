@@ -1,5 +1,2 @@
-npm  i mongodb mongooose
+# Project Notes
 
-npm i --save-dev babel-cli babel-preset-env babel-preset-stage-0
-
-npm i body-parser nodemon
