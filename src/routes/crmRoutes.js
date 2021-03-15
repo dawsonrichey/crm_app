@@ -1,4 +1,6 @@
-import { addnewContact } from '../controllers/crmControllers';
+import { addnewContact,
+    getContacts
+} from '../controllers/crmControllers';
 const routes = (app) => {
     app.route('/contact')
         .get((req,res, next) => {
@@ -6,9 +8,7 @@ const routes = (app) => {
             console.log(`Request from: ${req.originalUrl}`)
             console.log(`Request type: ${req.method}`)
             next();
-        }, (req,res, next) => {
-            res.send('GET request successful!');
-        })
+        }, getContacts)
         
 
         .post(addnewContact);
