@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 import { ContactSchema } from '../models/crmModel';
 
+// START CONTACT CONTROLLER //
 const Contact = mongoose.model('Contact', ContactSchema);
-
+// CREATE
 export const addnewContact = (req, res) => {
     let newContact = new Contact(req.body);
 
@@ -13,8 +14,7 @@ export const addnewContact = (req, res) => {
         res.json(contact);
     });
 }
-
-
+// GET
 export const getContacts = (req, res) => {
     Contact.find({}, (err, contact) => {
         if (err) {
@@ -23,7 +23,7 @@ export const getContacts = (req, res) => {
         res.json(contact);
     });
 }
-
+// GET WITH ID
 export const getContactWithID = (req, res) => {
     Contact.findById(req.params.contactID, (err, contact) => {
         if (err) {
@@ -32,7 +32,7 @@ export const getContactWithID = (req, res) => {
         res.json(contact);
     });
 }
-
+// UPDATE
 export const updateContact = (req, res) => {
     Contact.findOneAndUpdate({ _id: req.params.contactID }, req.body, { new: true, useFindAndModify: false }, (err, contact) => {
         if (err) {
@@ -41,7 +41,7 @@ export const updateContact = (req, res) => {
         res.json(contact);
     });
 }
-
+// DELETE
 Contact.deleteContact = (req, res) => {
     Contact.remove({ _id: req.params.contactID }, (err, contact) => {
 
@@ -51,3 +51,4 @@ Contact.deleteContact = (req, res) => {
     res.json({ message: 'succes delete' });
 });
 }
+// END CONTACT CONTROLLER //

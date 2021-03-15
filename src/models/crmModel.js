@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+
+// This models the data table
 export const ContactSchema = new Schema({
     firstName: {
         type: String,
