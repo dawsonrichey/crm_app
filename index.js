@@ -7,11 +7,12 @@ const app = express();
 const PORT = 4000;
 
 app.set('view engine', 'pug');
+app.use('/static', express.static('public'));
 
 // mongoose connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/CRMdb', {
-    useNewParser: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
@@ -27,6 +28,10 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render('index', { page: "index", title: "Home Page" });
+    // res.send(`Node and express server running on port ${PORT}`)
+});
+app.get('/contact', (req, res) => {
+    res.render('contact', { page: "Contact", title: "Contact Page" });
     // res.send(`Node and express server running on port ${PORT}`)
 });
 
